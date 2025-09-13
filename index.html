@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+<img id="bannerImage" src="destaque-home.png" alt="Banner Image" width="800" height="200">
+<button id="playPauseButton">Pause</button>
+
+<script>
+  const bannerImage = document.getElementById('bannerImage');
+  const playPauseButton = document.getElementById('playPauseButton');
+  let isPlaying = true;
+  let imageIndex = 0;
+  const images = ['destaque-home.png', 'destaque-home-2.png'];
+  let intervalId;
+
+  function changeImage() {
+    bannerImage.src = images[imageIndex];
+    imageIndex = (imageIndex + 1) % images.length;
+  }
+
+  function togglePlayPause() {
+    if (isPlaying) {
+      clearInterval(intervalId);
+      playPauseButton.textContent = 'Play';
+      isPlaying = false;
+    } else {
+      intervalId = setInterval(changeImage, 4000);
+      playPauseButton.textContent = 'Pause';
+      isPlaying = true;
+    }
+  }
+
+  intervalId = setInterval(changeImage, 2000);
+
+  playPauseButton.addEventListener('click', togglePlayPause);
+</script>
+
+
+
+
+<div id="logo">
+
+     <img src="logo.jpg" width="100px" height="80px" />
+
+</div>
+
+<div id="topo">
+
+    <img src="pc.topo.jpg" width="340px" height="100px" />
+
+</div>
+
+
+<div id="nav">
+     <ul>
+
+       <li><a href="index.html">pagina principal</a></li>
+       <li><a href="contacto.html">contacto</a></li>
+       <li><a href="sobre.html">sobre</a></li>
+	   <li><a href="catalogo.html">catalogo</a></li>
+
+
+     </ul>
+</div>
+
+<div id="container">
+
+	<img src="partes.jpg" width="400px" height="300px" /><br />
+    <img src="partes2.jpg" width="400px" height="300px" />
+
+
+</div>
+
+<div id="footer">
+
+<img src="redes.jpg" width="400px" height="70px" />
+
+</div>
+
+  </body>
+</html>
